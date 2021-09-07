@@ -155,9 +155,6 @@ for k in tqdm(['author', 'level1', 'level2', 'level3', 'level4', 'brand', 'mall'
     traf[t_cols1] = oof_train
     test[t_cols1] = oof_test
 
-traf=joblib.load(r'E:\ecaa\traf_复现.pkl')
-test=joblib.load(r'E:\ecaa\test_复现.pkl')
-
 # train model and predict
 use_cols = ['price','price_diff', 'author','level1', 'level2', 'level3', 'level4', 'brand', 'mall','comments_1h','zhi_1h', 'buzhi_1h', 'favorite_1h', 'orders_1h','comments_2h', 'zhi_2h', 'buzhi_2h', 'favorite_2h', 'orders_2h', 'week', 'comments_21_diff','url', 'baike_id_1h','baike_id_2h', 'comments_21_rate', 'zhi_21_diff', 'zhi_21_rate', 'buzhi_21_diff', 'buzhi_21_rate', 'favorite_21_diff', 'favorite_21_rate', 'orders_21_diff', 'orders_21_rate']+[x for x in traf.columns if '0810' in x]+[x for x in traf.columns if 'rank' in x]+[x for x in traf.columns if 'shift' in x]
 params={'custom_metric':'RMSE',
